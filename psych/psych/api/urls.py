@@ -4,9 +4,11 @@ from . import views
 urlpatterns = [
     path('user/', views.HomePageView.as_view(), name='home'),
     path('title/', views.title.as_view()),
+    path('title_c/', views.title_c.as_view()),
     path('title/<int:pk>/', views.detailtitle.as_view()),
     path('users/', views.user_reg.as_view()),
     path('users/<int:pk>/', views.user_detail.as_view()),
+    path('users_c/<int:pk>/', views.user_detail_c.as_view()),
     path('profile/', views.profile.as_view()),
     path('profile/<int:pk>/', views.profiledetail.as_view()),
     path('answers/', views.answer),
@@ -15,6 +17,8 @@ urlpatterns = [
     path('login/', views.login),
     path('logout/', views.logout),
     path('user_result/', views.results.as_view()),
+    path('user_result_f/', views.results_fbv),
+    path('users_f/', views.user_reg_f),
     path('user/<int:pk>/result/', views.userresult.as_view())
 
 ]

@@ -46,6 +46,14 @@ export class ProviderService extends MainService {
     });
   }
 
+  updateProfile(user: IUser): Promise<IUser> {
+    return this.put(`http://localhost:8000/api/users/${user.id}/`, {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      age: user.age,
+      email: user.email
+    });
+  }
 
   register(username: string, first_name: string, last_name: string, password: string, age:number, email: string, is_superuser: boolean, ): Promise<IUser>{
     return this.post('http://localhost:8000/api/users/', {

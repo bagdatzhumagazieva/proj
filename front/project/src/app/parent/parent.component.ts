@@ -186,6 +186,13 @@ toGoProfile(){
 }
 
 
+changeProfile(){
+
+  this.provider.updateProfile(this.profile).then(res =>{
+    console.log(this.profile.username + " updated");
+  })
+}
+
 hideModal(){
   document.getElementById("section_window").style.display="none";
   document.getElementById("window_reg").style.display="none";

@@ -20,10 +20,13 @@ class UserImageSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     encoder = BCryptSHA256PasswordHasher()
     id = serializers.IntegerField(read_only=True)
+    password = serializers.CharField(read_only=True)
+    is_superuser = serializers.BooleanField(read_only=True)
+    username = serializers.CharField(read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'age', 'password', 'email','is_superuser')
+        fields = ('id', 'username', 'first_name', 'last_name', 'age', 'password', 'email', 'is_superuser')
 
     def create(self, validated_data):
         # pop and encode password

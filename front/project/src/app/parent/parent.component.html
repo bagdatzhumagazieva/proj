@@ -191,11 +191,16 @@
     <div class="section_profile" id="section_profile" >
       <ng-container>
           <div class="window_profile">
-            <img src="http://127.0.0.1:8000/media/images/_r47k-uweQs.jpg" />  
-              {{profile.first_name}}<br>
+            <img src="" /> 
+            <input type="text" [(ngModel)]="profile.first_name" value="{{profile.first_name}}"/><br>
+            <input type="text" [(ngModel)]="profile.last_name" value="{{profile.last_name}}"/><br>
+            <input type="text" [(ngModel)]="profile.age" value="{{profile.age}}"/><br>
+            <input type="text" [(ngModel)]="profile.email" value="{{profile.email}}"/><br>
+              <!-- {{profile.first_name}}<br>
               {{profile.last_name}} <br>
               {{profile.age}}<br>
-              {{profile.email}}<br>
+              {{profile.email}}<br> -->
+              <button class="change_btn" (click) = "changeProfile()"> Өзгерту </button>
               Нәтижелері <br>
               <div *ngFor = "let arr of userResults.results">
                 {{arr.test_name}} - {{arr.test_result}}<br>
