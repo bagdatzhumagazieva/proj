@@ -100,7 +100,7 @@ export class ParentComponent implements OnInit {
       this.id = id;
       this.test = true;
       document.getElementById("test").style.display="block";
-
+      alert('Сіз кірдіңіз');
     }
 }
 toLogin(){
@@ -112,9 +112,10 @@ createResut(test_name:string, test_result:number, user:number) {
     this.provider.createResult(test_name, test_result, user).then(res => {
       this.results.push(res);
     });
-  
-}
-getUserResults(){
+
+  }
+
+  getUserResults(){
   this.provider.getUserResults(this.userId).then(res =>{
     this.userResults=res;
   })
@@ -176,6 +177,7 @@ getUserResults(){
 toReg(){
   document.getElementById("window_reg").style.display="block";
   document.getElementById("window_reg").style.opacity="toggle";
+  
 }
 
 toGoProfile(){
@@ -279,6 +281,7 @@ hideModalBack(){
         alert("Тіркелгеніңізге рақмет!")
         document.getElementById("window_reg").style.display="none";
         this.auth();
+       
       })
     } 
   }

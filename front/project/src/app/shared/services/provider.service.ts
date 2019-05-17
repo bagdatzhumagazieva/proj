@@ -45,9 +45,9 @@ export class ProviderService extends MainService {
       user: user
     });
   }
-
+ 
   updateProfile(user: IUser): Promise<IUser> {
-    return this.put(`http://localhost:8000/api/users/${user.id}/`, {
+    return this.put(`http://localhost:8000/api/users/update/${user.id}/`, {
       first_name: user.first_name,
       last_name: user.last_name,
       age: user.age,

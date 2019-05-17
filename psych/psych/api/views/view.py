@@ -7,11 +7,15 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from ..models import profileDetail, Title, Answer, ok_Answer, Question, User, Results, Images
-from ..serializers import UserImageSerializer, ProfileDetailSerializer,ResultSerializer,UserResultSerializer, OkAnswerSerializer, TitleSerializer,TitleSerializer2, QuestionSerializer, UserSerializer, AnswerSerializer
+from ..serializers import UserImageSerializer, ProfileDetailSerializer,ResultSerializer,UserResultSerializer, OkAnswerSerializer, TitleSerializer, \
+    TitleSerializer2, QuestionSerializer, UserSerializer, AnswerSerializer, updateUserSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import admin
 
-class HomePageView(generics.RetrieveUpdateDestroyAPIView):
+# def HomePage(request):
+#     return render()
+
+class userView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -58,6 +62,10 @@ class okanswer(generics.RetrieveUpdateDestroyAPIView):
 class results(generics.ListCreateAPIView):
     queryset = Results.objects.all()
     serializer_class = ResultSerializer
+
+class updateUser(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = updateUserSerializer
 
 @api_view(['GET', 'POST'])
 def results_fbv(request):

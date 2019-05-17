@@ -2,10 +2,10 @@
 <html>
   <header>
     <div class = "top_btns">
-      <button id="toReg" (click) = "toReg()">Тіркелу</button>
-      <button id="toLogin" (click) ="toLogin()"> Кіру </button>
-      <button id="profile"  (click) = "toGoProfile()"> Жеке кабинет </button>
-      <button id="logout"  (click) = "logout()" >Шығу</button>
+      <button id="toReg" class="registr_btn" (click) = "toReg()">Тіркелу</button>
+      <button id="toLogin" class="registr_btn" (click) ="toLogin()"> Кіру </button>
+      <button id="profile" class="registr_btn prof" (click) = "toGoProfile()"> Жеке кабинет </button>
+      <button id="logout" class="registr_btn prof" (click) = "logout()" >Шығу</button>
     </div>
     <ng-container >
         <div class="window_reg" id="window_reg" >
@@ -35,7 +35,6 @@
                         <div>
                             <input class="reg_item" type="password" placeholder="құпия сөз" [(ngModel)]="password_repeat"/>
                         </div>
-                        
                         <div >
                           <button class="reg_btn"  (click) = "register()">Тіркелу</button>
                         </div>
@@ -193,23 +192,20 @@
       <ng-container>
           <div class="window_profile">
             <img src="" /> 
-            <button class="back_btn prof" (click)="hideModal()">X</button>
+            <input type="text" [(ngModel)]="profile.first_name" value="{{profile.first_name}}"/><br>
+            <input type="text" [(ngModel)]="profile.last_name" value="{{profile.last_name}}"/><br>
+            <input type="text" [(ngModel)]="profile.age" value="{{profile.age}}"/><br>
+            <input type="text" [(ngModel)]="profile.email" value="{{profile.email}}"/><br>
+              <!-- {{profile.first_name}}<br>
+              {{profile.last_name}} <br>
+              {{profile.age}}<br>
+              {{profile.email}}<br> -->
+              <button class="change_btn" (click) = "changeProfile()"> Өзгерту </button>
+              Нәтижелері <br>
+              <div *ngFor = "let arr of userResults.results">
+                {{arr.test_name}} - {{arr.test_result}}<br>
+              </div>
 
-            <input type="text" class="profile_input" [(ngModel)]="profile.first_name" value="{{profile.first_name}}"/><br>
-            <input type="text" class="profile_input" [(ngModel)]="profile.last_name" value="{{profile.last_name}}"/><br>
-            <input type="text" class="profile_input" [(ngModel)]="profile.age" value="{{profile.age}}"/><br>
-            <input type="text" class="profile_input" [(ngModel)]="profile.email" value="{{profile.email}}"/><br> <br>
-              
-              <button class="change_btn" (click) = "changeProfile()"> Өзгерту </button><br><br>
-              
-              <div class="profile_result">
-                <div class="test_name main" >Тест</div> <div class="test_result main"> Балл </div>
-              </div>
-              
-              <div *ngFor = "let arr of userResults.results" class="profile_result">
-                    <div class ="test_name"> {{arr.test_name}}</div>  <div class="test_result"> {{arr.test_result}}<br></div>
-              </div>
-              
 
               <button class="back_prof" (click)="hideModal()">Шығу</button>
               

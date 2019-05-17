@@ -9,12 +9,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import {AuthInterceptor} from './AuthInterceptor';
 import {FormsModule} from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
-    TestComponent
+    TestComponent,
+    FooterComponent,
+    HeaderComponent,
+    MainComponent
   ],
   imports: [
     FormsModule,

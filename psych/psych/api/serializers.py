@@ -17,12 +17,19 @@ class UserImageSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'images')
 
-class UserSerializer(serializers.ModelSerializer):
-    encoder = BCryptSHA256PasswordHasher()
+class updateUserSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     password = serializers.CharField(read_only=True)
     is_superuser = serializers.BooleanField(read_only=True)
     username = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'first_name', 'last_name', 'age', 'password', 'email', 'is_superuser')
+
+class UserSerializer(serializers.ModelSerializer):
+    encoder = BCryptSHA256PasswordHasher()
+    id = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = User
@@ -73,7 +80,7 @@ class OkAnswerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Title
-        fields = ('id', 'okanswers');
+        fields = ('id', 'okanswers')
 
 class ProfileDetailSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
